@@ -45,6 +45,17 @@ class BD {
 		return $st->fetchAll(PDO::FETCH_CLASS);
   }
 
+  public function buscar($nome_tabela, $id)
+  {
+    $conn = $this->conn(); 
+    $sql = "SELECT * FROM $nome_tabela WHERE id=$id;";
+   
+    $st = $conn->prepare($sql);
+    $st->execute();
+
+		return $st->fetchObject();
+  }
+
 	 public function update($nome_tabela, $dados)
   {
 		$id = $dados['id'];
@@ -59,7 +70,7 @@ class BD {
 
   }
 
-	public function remove($nome_tabela,$id,$ids)
+	public function remove($nome_tabela,$id)
   {
     $conn = $this->conn(); 
     $sql = "DELETE FROM $nome_tabela WHERE id=$id;";
@@ -69,7 +80,7 @@ class BD {
   }
 
   
-	public function buscar($nome_tabela, $dados)
+	public function pesquisar($nome_tabela, $dados)
   {
     $campo = $dados['campo'];
     $valor = $dados['valor'];

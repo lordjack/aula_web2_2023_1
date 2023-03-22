@@ -1,9 +1,14 @@
 <?php 
 include "../controller/UsuarioController.php";
 
+$usuario = new UsuarioController();
+
 if(!empty($_POST)){
-    $usuario = new UsuarioController();
-    $usuario->salvar($_POST);
+  $usuario->salvar($_POST);
+}
+
+if(!empty($_GET['id'])){
+ $data = $usuario->buscar($_GET['id']);
 }
 
 ?>
