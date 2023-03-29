@@ -1,5 +1,7 @@
 <?php
-	session_start();
+	include '../Util.php';
+  Util::verificar();
+
 ?>
 <html>
   <head>
@@ -8,7 +10,10 @@
   <body>
 		<h3>Sistema Academico</h3>
 		<?php
-				echo "Seja bem vindo usuário: " .$_SESSION['login'];
+				echo "Seja bem vindo usuário: " .$_SESSION['login']." <a href='login.php'>Sair</a>";
 		?>
+    <br><br><br>
+    <a href="./UsuarioList.php">Usuário</a>
+
   </body>
 </html>

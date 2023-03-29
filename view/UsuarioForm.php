@@ -1,5 +1,7 @@
 <?php 
 include "../controller/UsuarioController.php";
+include '../Util.php';
+Util::verificar();
 
 $usuario = new UsuarioController();
 

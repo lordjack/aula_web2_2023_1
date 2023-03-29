@@ -9,8 +9,18 @@ class Util{
 
         if($_SESSION['login'] =="admin" && $_SESSION['senha'] == "123"){
             header("Location:main.php");
+            var_dump($_SESSION);
+            exit;
         } else {
-            header("Location: index.php?msg=erro");
+            header("Location: login.php?msg=erro");
+        }
+    }
+
+    static function verificar(){
+        session_start();
+        if($_SESSION['login'] == null){
+            session_destroy();
+            header("Location: login.php");
         }
     }
 }
