@@ -6,9 +6,9 @@ class Util{
 
         $_SESSION['login'] = $param['login'];
         $_SESSION['senha'] = $param['senha'];
+        header("Location:main.php");
 
         if($_SESSION['login'] =="admin" && $_SESSION['senha'] == "123"){
-            header("Location:main.php");
             var_dump($_SESSION);
             exit;
         } else {
